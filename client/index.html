@@ -4,9 +4,23 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Express</title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
-	<h1>Hello from node</h1>
+	<div ng-app='meanTodo'>
+		<div class='container'>
+			<div ng-controller='MeanCtrl'>
+				<h1>{{title}}</h1>
+			</div>
+		</div>
+	</div>
+
+
+	<script src='/lib/jquery/dist/jquery.min.js'></script>
+	<script src='/lib/bootstrap/dist/js/bootstrap.min.js'></script>
+	<script src='/lib/angular/angular.min.js'></script>
+	<script src='/lib/angular-route/angular-route.min.js'></script>
+	<script src='/app/app.js'></script>
 </body>
 </html>
