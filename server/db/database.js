@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 
 mongoose.Promise = Promise
 
-
 module.exports.connect = () => mongoose.connect(MONGODB_URL)
 module.exports.disconnect = () => mongoose.disconnect()
 

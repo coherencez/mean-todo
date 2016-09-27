@@ -12,10 +12,18 @@ app.set('port', PORT)
 app.use(express.static('client'))
 app.use(json())
 
-app.get('/api/todos', (req,res) => {
+app.get('/api/todos', (req,res,err) => {
 	Todo
-		.find()
-		.then(todos => res.json({todos}))
+	.find()
+	.then(todos => res.json({todos}))
+	.catch(err)
+})
+
+app.post('/api/todos', (req,res,err) => {
+	Todo
+	.create(req.body)
+	.then(todo => res.json({todo}))
+	.catch(err)
 })
 
 connect()

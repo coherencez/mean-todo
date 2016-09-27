@@ -20,6 +20,20 @@ app.controller('MeanCtrl', ['$scope', function($scope) {
 
 app.controller('TodoCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.title = 'TODO List'
+
+	$scope.addTodo = () => {
+		const todoObj = {
+			content: $scope.content
+		}
+		$http
+		.post('/api/todos', todoObj)
+		.then(() => {
+			$scope.todos.push(todoObj)
+			$scope.content = ''
+		})
+		.catch(console.error)
+	}
+
 	$http
 		.get('/api/todos')
 		.then(({data: {todos}}) => $scope.todos = todos)

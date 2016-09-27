@@ -1,8 +1,8 @@
 <a class='btn btn-primary' href='#/'>Home</a>
 <h1>{{ title }}</h1>
 
-<form class='form-group'>
-	<input class='form-control' type="text" />
+<form class='form-group' ng-submit='addTodo()'>
+	<input class='form-control' type="text" ng-model='content'/>
 	<button class='form-control btn btn-warning' type='submit'>Add Todo</button>
 </form>
 
