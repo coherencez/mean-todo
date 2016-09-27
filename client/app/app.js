@@ -18,10 +18,10 @@ app.controller('MeanCtrl', ['$scope', function($scope) {
 	$scope.title = 'Hello from angular!'
 }])
 
-app.controller('TodoCtrl', ['$scope', function($scope) {
+app.controller('TodoCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.title = 'TODO List'
-	$scope.todos = [
-		{ content: 'Go shopping' },
-		{ content: 'Do Chores' },
-	]
+	$http
+		.get('/api/todos')
+		.then(({data: {todos}}) => $scope.todos = todos)
+		.catch(console.error )
 }])
