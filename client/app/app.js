@@ -20,4 +20,8 @@ app.controller('MeanCtrl', ['$scope', function($scope) {
 
 app.controller('TodoCtrl', ['$scope', function($scope) {
 	$scope.title = 'TODO List'
+	$scope.todos = [
+		{ content: 'Go shopping' },
+		{ content: 'Do Chores' },
+	]
 }])
