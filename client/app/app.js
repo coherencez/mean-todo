@@ -20,6 +20,7 @@ app.controller('MeanCtrl', ['$scope', function($scope) {
 
 app.controller('TodoCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.title = 'TODO List'
+	$scope.edit = false
 
 	$scope.addTodo = () => {
 		const todoObj = {
@@ -39,6 +40,26 @@ app.controller('TodoCtrl', ['$scope', '$http', function($scope, $http) {
 		.post('/api/delete', {todoId})
 		.then(() => $scope.todos.splice(index,1))
 		.catch(console.error)
+	}
+
+	$scope.editTodo = (e, id, content, index) => {
+		const todoTag = e.target
+		const  $input = $(`<input value=${content} />`)
+		$(todoTag).append($input).on('keyup', (e) => {
+			if(e.keyCode === 13) {
+				console.log($scope.content)
+				$http
+				.post('/api/edit', {})
+				.then(() => console.log('done posting'))
+				.catch(console.error)
+				$(todoTag).children("input:first").remove()
+			}
+		})
+		
+	}
+
+	$scope.saveEdit = (e) => {
+
 	}
 
 	$http

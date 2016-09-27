@@ -33,6 +33,10 @@ app.post('/api/delete', ({body: {todoId}},res,err) => {
 	.catch(err)
 })
 
+app.post('/api/edit', (req,res) => {
+	console.log('REQ', req.body)
+})
+
 connect()
 	.then(() => app.listen(PORT, () => console.log(`Now listening on port ${PORT}`)))
 	.catch(console.error)

@@ -9,5 +9,9 @@
 <hr />
 
 <ul>
-	<li ng-repeat='todo in todos'>{{todo.content}}<button ng-click='deleteTodo(todo._id, $index)'>X</button></li>
+	<li ng-repeat='todo in todos' ng-model='todoLI'>
+		<!-- <input ng-show='edit' value={{todo.content}} ng-click='saveEdit($event)'/> -->
+		<p ng-click='editTodo($event, todo._id, todo.content, $index)'>{{todo.content}}</p>
+		<button ng-click='deleteTodo(todo._id, $index)'>X</button>
+	</li>
 </ul>
