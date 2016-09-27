@@ -26,6 +26,13 @@ app.post('/api/todos', (req,res,err) => {
 	.catch(err)
 })
 
+app.post('/api/delete', ({body: {todoId}},res,err) => {
+	Todo
+	.remove({_id: todoId})
+	.then((data) => res.json({data}))
+	.catch(err)
+})
+
 connect()
 	.then(() => app.listen(PORT, () => console.log(`Now listening on port ${PORT}`)))
 	.catch(console.error)

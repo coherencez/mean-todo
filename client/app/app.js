@@ -34,6 +34,13 @@ app.controller('TodoCtrl', ['$scope', '$http', function($scope, $http) {
 		.catch(console.error)
 	}
 
+	$scope.deleteTodo = (todoId, index) => {
+		$http
+		.post('/api/delete', {todoId})
+		.then(() => $scope.todos.splice(index,1))
+		.catch(console.error)
+	}
+
 	$http
 		.get('/api/todos')
 		.then(({data: {todos}}) => $scope.todos = todos)

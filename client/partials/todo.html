@@ -9,5 +9,5 @@
 <hr />
 
 <ul>
-	<li ng-repeat='todo in todos' >{{todo.content}}</li>
+	<li ng-repeat='todo in todos'>{{todo.content}}<button ng-click='deleteTodo(todo._id, $index)'>X</button></li>
 </ul>
