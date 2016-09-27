@@ -17,3 +17,7 @@ app.config($routeProvider => {
 app.controller('MeanCtrl', ['$scope', function($scope) {
 	$scope.title = 'Hello from angular!'
 }])
+
+app.controller('TodoCtrl', ['$scope', function($scope) {
+	$scope.title = 'TODO List'
+}])
